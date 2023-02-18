@@ -1,4 +1,4 @@
-Plugin comes without and guarantee. You are welcome to  use the code under MIT licence.
+Plugin comes without and guarantee. You are welcome to  use the code under MIT licence. Please, make a pull request if you find an error in the code.
 
 Available commands:
 
