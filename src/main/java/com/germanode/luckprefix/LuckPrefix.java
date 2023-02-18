@@ -1,6 +1,7 @@
 //LuckPrefix by Germanode
 package com.germanode.luckprefix;
 
+import org.bukkit.plugin.java.JavaPlugin;
 import net.luckperms.api.LuckPerms;
 import net.luckperms.api.LuckPermsProvider;
 import net.luckperms.api.model.user.User;
@@ -17,7 +18,6 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.plugin.java.JavaPlugin;
 
 public class LuckPrefix extends JavaPlugin {
     private LuckPerms luckPerms;
@@ -32,7 +32,7 @@ public class LuckPrefix extends JavaPlugin {
 
         luckPerms = LuckPermsProvider.get();
         getLogger().info("LuckPrefix enabled!");
-     }
+                          }
 
     @Override
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
@@ -75,8 +75,8 @@ public class LuckPrefix extends JavaPlugin {
                 return true;
             }
 
-            Node node = LuckPermsProvider.get().getNodeBuilderRegistry().forPrefix().prefix(prefix).build();
-            user.data().add(node);
+            PrefixNode prefixNode = LuckPermsProvider.get().getNodeBuilderRegistry().forPrefix().prefix(prefix).build();
+            user.data().add(prefixNode);
             luckPerms.getUserManager().saveUser(user);
             target.sendMessage(ChatColor.GRAY + "Your prefix has been updated to: " + prefix);
             player.sendMessage(ChatColor.GRAY + "Prefix updated for " + target.getName() + ": " + prefix);
@@ -92,3 +92,5 @@ public class LuckPrefix extends JavaPlugin {
                 player.sendMessage(ChatColor.GRAY + "User not found in LuckPerms.");
                 return true;
             }
+    }
+}

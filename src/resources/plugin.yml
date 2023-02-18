@@ -1,0 +1,31 @@
+name: LuckPrefix
+version: 1.0
+main: com.germanode.luckprefix
+author: Germanode
+description: Assign prefixes with /prefix
+api-version: 1.19
+load: startup
+depend: LuckPerms
+
+commands:
+  prefix:
+    description: Assign a prefix to yourself or another player.
+    usage: /prefix <prefix> [player]
+    permission: prefix.assign
+    permission-message: You do not have permission to assign prefixes.
+    
+permissions:
+  prefix.assign:
+    description: Allows a player to assign a prefix to themselves or another player.
+    default: op
+  prefix.color:
+    description: Allows a player to use color codes in their prefix.
+    default: op
+  prefix.length:
+    description: Allows a player to use prefixes longer than 16 characters.
+    default: op
+  prefix.self:
+    description: Allows a player to assign a prefix to themselves.
+    default: op
+    children:
+      prefix.assign: false
